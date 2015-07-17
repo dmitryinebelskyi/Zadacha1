@@ -6,25 +6,28 @@ int main()
 {
 	setlocale(LC_ALL , "Russian");
 	double item[5];
-	item[0] = 3;
-	item[1] = 6,50;
-	item[2] = 9;
-	item[3] = 14,25;
-	item[4] = 26;
-	//char quit = ' '; 		//Коли в циклі quit буде дорівнювати - q => тоді цикл вибору продуктів має закінчитись
-	int i=1;			//Змінна якою я вибираю продукти в циклі
-	int price = 0;   		//Загальна ціна 
-	cout << "Choose items what you want to buy\n" << "0. Milk\n" << "1. Chocolade\n" << "2. CocaCola\n" << "3. CandyPack\n" << "4. Smartphone\n";
-	while (!(i == 0)) //Поки i не дорівнює 0
+	int i=1;											
+	double price = 0;   
+		item[0] = 3;
+		item[1] = 6,50;
+		item[2] = 9;
+		item[3] = 14,25;
+		item[4] = 26;
+	cout << "Choose items what you want to buy\n" << "1. Milk\n" << "2. Chocolade\n" << "3. CocaCola\n" << "4. CandyPack\n" << "5. Smartphone\n";
+	while (!(i == 0))									
 	{
-		cin >> i; 				//Я вибираю індекс продукта з масива
-		price = price + item[i];		//Ціна = ціна + item[число яке я вибрав]					
-		//i = 0;				//Обнуляєм зміну з вибіром продукта
-		//cin >> quit;				//Программа провіряє чи я не написав q і чи не вийти з циклу
-	}
-	cout << "You must pay: "<< price << " dollars" << endl; //Я маю заплатити "ЦІНА"
+		cin >> i; 										
+		if (i > 0 && i < 6)
+		{
+			price = price + item[i-1];											
+		} else
+		{
+			if (i == 0) break;
+			cout << "Uncorrect choose\n";
+		}
 
-
+	}	
+	cout << "You must pay: "<< price << "$" << endl;
 
 	
 	_getch();

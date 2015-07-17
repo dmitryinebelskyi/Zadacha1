@@ -1,0 +1,33 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL , "Russian");
+	double item[5];
+	item[0] = 3;
+	item[1] = 6,50;
+	item[2] = 9;
+	item[3] = 14,25;
+	item[4] = 26;
+	char quit = ' '; //Коли в циклі quit буде дорівнювати - q => тоді цикл вибору продуктів має закінчитись
+	int i;			 //Змінна якою я вибираю продукти в циклі
+	int price = 0;   //Загальна ціна 
+	cout << "Choose items what you want to buy\n" << "0. Milk\n" << "1. Chocolade\n" << "2. CocaCola\n" << "3. CandyPack\n" << "4. Smartphone\n";
+	while (!(quit == 'q')) //Поки quit не дорівнює q
+	{
+	cin >> i;						//Я вибираю індекс продукта з масива
+	price = price + item[i];		//Ціна = ціна + item[число яке я вибрав]					
+	i = 0;							//Обнуляєм зміну з вибіром продукта
+	cin >> quit;					//Программа провіряє чи я не написав q і чи не вийти з циклу
+								
+	}
+	cout << "You must pay: "<< price << " dollars" << endl; //Я маю заплатити "ЦІНА"
+
+
+
+	
+	_getch();
+	return 0;
+}

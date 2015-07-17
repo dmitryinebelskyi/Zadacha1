@@ -8,6 +8,7 @@ int main()
 	double item[5];
 	int i=1;											
 	double price = 0;   
+	double money,change;
 		item[0] = 3;
 		item[1] = 6,50;
 		item[2] = 9;
@@ -20,15 +21,34 @@ int main()
 		if (i > 0 && i < 6)
 		{
 			price = price + item[i-1];											
-		cout << "Price " << price << endl;
+		} else
+		{
+			if (i == 0) break;
+			cout << "Uncorrect choose\n";
+		}
+
+	}	
+	cout << "You must pay: "<< price << "$" << endl;
+	cout << "Put your money here: ";
+	while (1)
+	{
+		cin >> money;
+		if (money <= 0)
+		{
+			cout << "Incorrect enter, please try again\n";
 		}
 		else 
 		{
-		break;
+		if (money >0 && money < price)
+		{
+		cout << "You must add " << price - money << "$";
 		}
-			
-	}	
-	cout << "You must pay: "<< price << " dollars" << endl;
+		else break;
+		}
+	}
+	change = money - price;
+	cout << "Your change: " << change << "$";
+
 
 	
 	_getch();
